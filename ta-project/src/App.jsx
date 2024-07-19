@@ -1,12 +1,14 @@
-import { CardSpread } from './components/card-spread'
-import './index.css'
-
+import { CardDraw } from './components/card-draw';
+import { CardSpread } from './components/card-spread';
+import { useClickHandler } from "./hook/useClickHandler";
+import './index.css';
 function App() {
-  
-
+  const {CardDrawHandler,cardList} = useClickHandler()
+ 
   return (
     <>
-   <CardSpread/>
+   <CardSpread cardList={cardList}/>
+   <CardDraw CardDrawHandler={CardDrawHandler}/>
     </>
   )
 }

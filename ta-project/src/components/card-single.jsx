@@ -1,6 +1,6 @@
-const CardSingle = () =>{
-  return(<div className="w-[55%] bg-black border-2 border-cyan-700 h-64 mb-[20px] rounded-md">
-
+const CardSingle = ({children,onClick}) => {
+  return (<div onClick={onClick}  className="w-[150px] bg-black border-2 border-cyan-700 h-auto rounded-md">
+    {children}
   </div>)
 
 }
