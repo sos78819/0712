@@ -1,7 +1,7 @@
 
+import { CardContainer } from "./card-container";
 import { CardImg } from "./card-img";
 import { CardSingle } from "./card-single";
-
 const CardSpread = ({cardList}) => {
   const cardStyle = "w-[200px] bg-black border-2 border-cyan-700 h-64 mb-[20px] rounded-md";
   console.log('cardList',cardList)
@@ -18,7 +18,13 @@ const CardSpread = ({cardList}) => {
           </div>
         </div>
         <div className="w-[33%] flex flex-wrap justify-center items-center">
-        {cardList[0]?<CardSingle><CardImg number={cardList[0]}></CardImg></CardSingle>:<CardSingle><CardImg number="board"></CardImg></CardSingle>}
+        {cardList[0]?
+        <CardContainer>
+       
+        <CardSingle className="[backface-visibility:hidden] "><CardImg number="TarDefault"></CardImg></CardSingle>
+        <CardSingle className="absolute top-0  [backface-visibility:hidden] [transform:rotateY(180deg)]"><CardImg number={cardList[0]}></CardImg></CardSingle>
+        </CardContainer>
+        :<CardSingle><CardImg number="board"></CardImg></CardSingle>}
         {cardList[6]?<CardSingle><CardImg number={cardList[6]}></CardImg></CardSingle>:<CardSingle><CardImg number="board"></CardImg></CardSingle>}
         {cardList[5]?<CardSingle><CardImg number={cardList[5]}></CardImg></CardSingle>:<CardSingle><CardImg number="board"></CardImg></CardSingle>}
         </div>
