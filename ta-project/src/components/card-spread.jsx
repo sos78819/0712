@@ -19,8 +19,7 @@ const CardSpread = ({cardList}) => {
         </div>
         <div className="w-[33%] flex flex-wrap justify-center items-center">
         {cardList[0]?
-        <CardContainer>
-       
+        <CardContainer>       
         <CardSingle className="[backface-visibility:hidden] "><CardImg number="TarDefault"></CardImg></CardSingle>
         <CardSingle className="absolute top-0  [backface-visibility:hidden] [transform:rotateY(180deg)]"><CardImg number={cardList[0]}></CardImg></CardSingle>
         </CardContainer>
