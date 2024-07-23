@@ -11,6 +11,6 @@
 }
 
 .rotate-animation {
-  animation: rotateY 3s ;
+  animation: rotateY 2s ;
   animation-fill-mode: forwards;
 }
