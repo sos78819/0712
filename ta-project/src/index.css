@@ -9,8 +9,25 @@
     transform: rotateY(180deg);
   }
 }
+@keyframes up {
+  from {
+    margin-top: -10px;
+    opacity: 1;
+  }
+  to {
+    margin-top: -150px;
+    opacity: 0;
+    display: none;
+  }
+}
 
 .rotate-animation {
   animation: rotateY 2s ;
+  animation-fill-mode: forwards;
+}
+
+.up-animation {
+  animation: up 2s ;
+  
   animation-fill-mode: forwards;
 }

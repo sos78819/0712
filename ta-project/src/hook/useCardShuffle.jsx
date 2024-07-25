@@ -1,19 +1,43 @@
-const useCardShuffle = () =>{
-  var tarot = new Array(22);
-  for (var i = 1; i <= tarot.length; i++) {
-      tarot[i - 1] = i;
+import { useState, useMemo } from "react";
+
+const useCardShuffle = () => {
+
+  const [Shuffle, setShuffle] = useState(1)
+   console.log(Shuffle)
+  function CardShuffleHandler() {
+    setShuffle((pre)=>(pre + 1))
   }
 
-  //洗牌
-  var tmp = "";
-  var t = 0;
-  for (var i = 0; i < tarot.length; i++) {
-      t = Math.floor((Math.random() * 21) + 1);     
-      tmp = tarot[i];    
-      tarot[i] = tarot[t];
-      tarot[t] = tmp;
-  }
-  return {tarot}
+  const tarotCards = useMemo(() => {
+    if (Shuffle) {
+      
+      var tarot = new Array(22);
+      for (var i = 1; i <= tarot.length; i++) {
+        tarot[i - 1] = i;
+      }
+
+      //洗牌
+      var tmp = "";
+      var t = 0;
+      for (var j = 0; j < tarot.length; j++) {
+        t = Math.floor((Math.random() * 21) + 1);
+        tmp = tarot[j];
+        tarot[j] = tarot[t];
+        tarot[t] = tmp;
+      }
+      
+      const tarotArray = tarot.map(number => ({
+        cardId: number,
+        hidden: false
+      }));
+      
+      return tarotArray
+    }
+   
+  }, [Shuffle])
+ 
+  return { tarotCards, CardShuffleHandler}
 }
+
 
 export { useCardShuffle };
