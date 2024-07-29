@@ -1,18 +1,18 @@
-import { useCardShuffle } from "../hook/useCardShuffle"
 import { CardImg } from "./card-img"
 import { CardSingle } from "./card-single"
-const CardDraw = ({ CardDrawHandler }) => {
+const CardDraw = ({ CardDrawHandler,Cards }) => {
 
-  const { tarotCards, CardShuffleHandler } = useCardShuffle()
-
+ 
+  
   return (
     <>
-      <button onClick={() => CardShuffleHandler()} type="button">洗牌</button>
-      <div className="w-full flex  justify-center"  >
-
-        {tarotCards.map((card) => (
-          !card.hidden ?<CardSingle className="bg-black" onClick={() => CardDrawHandler(card.cardId)} key={card.cardId}><CardImg  number="TarDefault"></CardImg></CardSingle>
-          :<CardSingle className="bg-black"  key={card.cardId}><CardImg className="hidden"  number="TarDefault"></CardImg></CardSingle>
+     
+      <div className="w-full flex flex-wrap justify-center"  >
+        {Cards.map((card) => (
+          !card.hidden ?<CardSingle onClick={() => CardDrawHandler(card.cardId)} key={card.cardId}><CardImg number="TarDefault"></CardImg></CardSingle>:
+          !card.style
+          ?<CardSingle key={card.cardId}><CardImg className="hidden"  number="TarDefault"></CardImg></CardSingle>:
+          <CardSingle  key={card.cardId}><CardImg className="up-animation"  number="TarDefault"></CardImg></CardSingle>
         ))}
       </div></>
 
@@ -21,3 +21,4 @@ const CardDraw = ({ CardDrawHandler }) => {
 }
 
 export { CardDraw }
+

@@ -27,7 +27,6 @@
 }
 
 .up-animation {
-  animation: up 2s ;
-  
+  animation: up 2s ;  
   animation-fill-mode: forwards;
 }

@@ -5,9 +5,18 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+
+    extend: {
+      screens: {
+        xs: '300px',
+        sm: '480px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+      },
+    },
   },
-  plugins: [    
+  plugins: [
     require("tailwind-merge"),
   ],
 }

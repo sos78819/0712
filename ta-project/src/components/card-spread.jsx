@@ -5,7 +5,7 @@ import { CardSingle } from "./card-single";
 const CardSpread = ({ cardList }) => {
   console.log('cardList', cardList)
   return (
-    <div className="w-full  flex justify-center items-center bg-gradient-to-b from-indigo-100 to-indigo-300">
+    <div className="w-full  flex justify-center items-center">
       <div className="w-[35%] flex py-5">
         <div className="w-[33%] flex items-center">
           <div className="w-full  flex flex-wrap items-center justify-end">
