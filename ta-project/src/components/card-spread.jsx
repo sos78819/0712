@@ -6,7 +6,7 @@ const CardSpread = ({ cardList }) => {
   console.log('cardList', cardList)
   return (
     <div className="w-full  flex justify-center items-center">
-      <div className="lg:w-[35%] md:w-[40%] sm:w-[50%] xs:w-[90%] flex py-5">
+      <div className="xl:w-[20%] lg:w-[35%] md:w-[40%] sm:w-[50%] xs:w-[90%] flex py-5">
         <div className="w-[33%] flex items-center">
           <div className="w-full  flex flex-wrap items-center justify-end">
             {cardList[3] ?
