@@ -1,16 +1,10 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 
 const useCardShuffle = () => {
 
-  const [Shuffle, setShuffle] = useState(1)
-   console.log(Shuffle)
-  function CardShuffleHandler() {
-    setShuffle((pre)=>(pre + 1))
-  }
-
+  const [Shuffle, setShuffle] = useState(1)   
   const tarotCards = useMemo(() => {
-    if (Shuffle) {
-      
+    if (Shuffle) {      
       var tarot = new Array(22);
       for (var i = 1; i <= tarot.length; i++) {
         tarot[i - 1] = i;
@@ -36,8 +30,9 @@ const useCardShuffle = () => {
    
   }, [Shuffle])
  
-  return { tarotCards, CardShuffleHandler}
+  return { tarotCards, setShuffle}
 }
 
 
 export { useCardShuffle };
+

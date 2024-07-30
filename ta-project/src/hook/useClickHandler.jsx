@@ -3,7 +3,7 @@ import { useCardShuffle } from "./useCardShuffle";
 
 const useClickHandler = () => {
   const [cardList, setCardList] = useState([])
-  const { tarotCards } = useCardShuffle()
+  const { tarotCards,setShuffle } = useCardShuffle()
   const [Cards, setCards] = useState(tarotCards)
   function CardDrawHandler(number) {
     const position = Math.random() < 0.5;
@@ -18,12 +18,15 @@ const useClickHandler = () => {
       setCardList(preList => [...preList, newCard])
       setCards(newCards)
     }
-
-
-
   }
 
-  return { CardDrawHandler, cardList, Cards }
+  function CardShuffleHandler(){
+    setCardList([])
+    setShuffle((pre)=> pre + 1)
+    setCards(tarotCards)
+  }
+
+  return { CardDrawHandler,CardShuffleHandler, cardList, Cards }
 }
 
 export { useClickHandler };
