@@ -3,6 +3,7 @@ import { QuestionSelect } from "./question-select";
 import { Button } from "../ui/button";
 import { Arrow } from "../ui/arrow";
 
+// eslint-disable-next-line react/prop-types
 const QuestionType = ({step,typeChange,typeOption,stephandler}) => {
 
     return (<div className="w-full h-[100vh] flex justify-center items-center bg-gradient-to-b from-indigo-100 to-indigo-300 ">
