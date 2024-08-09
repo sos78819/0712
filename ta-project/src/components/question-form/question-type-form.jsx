@@ -7,7 +7,7 @@ import { Arrow } from "../ui/arrow";
 const QuestionType = ({step,typeChange,typeOption,stephandler}) => {
 
     return (<div className="w-full h-[100vh] flex justify-center items-center bg-gradient-to-b from-indigo-100 to-indigo-300 ">
-        <div className="w-[30%] relative">
+        <div className="w-[60%] md:w-[40%] relative">
             <QuestionForm>
             <QuestionSelect step={step} typeChange={typeChange} typeOption={typeOption}/>
             </QuestionForm>
