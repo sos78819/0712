@@ -28,15 +28,26 @@
 @keyframes suffle {
   0% {
     opacity: 1;
+
+
   }
 
   90% {
     opacity: 0.6;
+
+
+  }
+
+  95% {
+    opacity: 0.5;
+    z-index: 10;
+
   }
 
   100% {
-    z-index: 0;
+    z-index: auto;
     opacity: 0;
+
     display: none;
 
   }
@@ -47,18 +58,23 @@
   0% {
     opacity: 1;
   }
+
   20% {
     opacity: 0.2;
   }
+
   40% {
     opacity: 1;
   }
+
   60% {
     opacity: 0.2;
   }
+
   80% {
     opacity: 1;
   }
+
   100% {
 
     opacity: 0;
