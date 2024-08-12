@@ -7,7 +7,7 @@ import { CardSpread } from "./card-spread";
 const CardDrawPage = ({ cardList, CardShuffleHandler, Cards, CardDrawHandler }) => {
     return (
         <CardDrawPageContainer>
-            <CardSuffleAnimation />
+            {/* <CardSuffleAnimation /> */}
             <CardSpread cardList={cardList} />
             <CardShuffleButton CardShuffleHandler={CardShuffleHandler} />
             <CardDraw Cards={Cards} CardDrawHandler={CardDrawHandler} />
