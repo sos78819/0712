@@ -1,15 +1,15 @@
 import { CardDraw } from "./card-draw";
 import { CardDrawPageContainer } from "./card-draw-page-container";
-import { CardShuffleButton } from "./card-suffle-button";
+
 import { CardSuffleAnimation } from "./card-suffle-animate";
 import { CardSpread } from "./card-spread";
-
+import { CardDrawTips } from "./card-draw-tips";
 const CardDrawPage = ({ cardList, CardShuffleHandler, Cards, CardDrawHandler }) => {
     return (
         <CardDrawPageContainer>
-            <CardSuffleAnimation />
+            <CardSuffleAnimation />            
             <CardSpread cardList={cardList} />
-            <CardShuffleButton CardShuffleHandler={CardShuffleHandler} />
+            <CardDrawTips CardShuffleHandler={CardShuffleHandler}/>
             <CardDraw Cards={Cards} CardDrawHandler={CardDrawHandler} />
         </CardDrawPageContainer>)
 }

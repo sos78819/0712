@@ -1,5 +1,9 @@
-const CardShuffleButton = ({CardShuffleHandler}) =>{
-  return <button className="rounded-md bg-cyan-500 text-slate-800 p-2  mr-2 hover:bg-cyan-300 absolute right-1 z-9 top-1" onClick={()=>CardShuffleHandler()}>ReStart</button>
+import { ReSet } from "./ui/reset"
+const CardShuffleButton = ({ CardShuffleHandler }) => {
+  return <button className="rounded-md absolute right-1 text-xs flex bg-violet-300 text-gray-700 p-2  mr-2 hover:bg-violet-200" onClick={() => CardShuffleHandler()}>
+    <ReSet/>
+    ReStart
+  </button>
 }
 
 export { CardShuffleButton }

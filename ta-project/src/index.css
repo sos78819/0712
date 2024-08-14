@@ -28,55 +28,49 @@
 @keyframes suffle {
   0% {
     opacity: 1;
-
-
   }
-
+  80% {
+    opacity: 0.9;
+  }
   90% {
     opacity: 0.6;
-
-
-  }
-
-  95% {
-    opacity: 0.5;
     z-index: 10;
-
   }
-
   100% {
     z-index: 0;
     opacity: 0;
-
     display: none;
-
+  }
+}
+@keyframes suffle-card {
+  0% {
+    margin-left: -80px;
+  }
+  85% {
+    margin-left: -80px;
   }
 
+  100% {
+    margin-left: -20px;
+  }
 }
-
 @keyframes textBreathe {
   0% {
     opacity: 1;
   }
-
   20% {
     opacity: 0.2;
   }
-
   40% {
     opacity: 1;
   }
-
   60% {
     opacity: 0.2;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
-
     opacity: 0;
   }
 }
@@ -99,6 +93,11 @@
 
 .textBreathe-animation {
   animation: textBreathe 11s;
+}
 
-
+.suffle-card-animation{  
+  
+  animation-timing-function: ease;
+  animation:suffle-card 12s;
+  animation-fill-mode: forwards;
 }
