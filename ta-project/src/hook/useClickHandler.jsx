@@ -3,97 +3,110 @@ import { useCardShuffle } from "./useCardShuffle";
 
 const useClickHandler = () => {
   const [cardList, setCardList] = useState([])
-  const { tarotCards, setShuffle } = useCardShuffle() 
+  const { tarotCards, setShuffle } = useCardShuffle()
   const [Cards, setCards] = useState(tarotCards)
 
   const defaultOption =
-  [
+    [
       {
-          id: 1,
-          title: "愛情",
+        id: "love",
+        title: "愛情",
 
       },
       {
-          id: 2,
-          title: "事業",
+        id: "career",
+        title: "事業",
 
       },
       {
-          id: 3,
-          title: "財運",
+        id: "fortune",
+        title: "財運",
 
       }]
-const loveOption =
-  [
+  const loveOption =
+    [
       {
-          id: "love_1",
-          title: "單身問未來感情發展",
+        id: "love_1",
+        title: "單身問未來感情發展",
 
       },
       {
-          id: "love_2",
-          title: "與特定對象感情發展",
+        id: "love_2",
+        title: "與特定對象感情發展",
+
+      },
+      // {
+      //     id: "love_3",
+      //     title: "婚姻",
+
+      // }
+    ]
+  const careerOption =
+    [
+      {
+        id: "career_1",
+        title: "當前工作發展",
 
       },
       {
-          id: "love_3",
-          title: "婚姻",
+        id: "career_2",
+        title: "求職/轉職",
 
-      }]
-const careerOption =
-  [
+      },
+      // {
+      //     id: "career_3",
+      //     title: "創業",
+
+      // }
+    ]
+  const fortuneOption =
+    [
       {
-          id: "career_1",
-          title: "求職/轉職",
+        id: "fortune_1",
+        title: "薪資收入",
 
       },
       {
-          id: "career_2",
-          title: "當前工作發展",
+        id: "fortune_2",
+        title: "投資理財",
 
       },
-      {
-          id: "career_3",
-          title: "創業",
+      // {
+      //     id: "fortune_3",
+      //     title: "薪資收入",
 
-      }]
-const fortuneOption =
-  [
-      {
-          id: "fortune_1",
-          title: "整體財運",
-
-      },
-      {
-          id: "fortune_2",
-          title: "投資理財",
-
-      },
-      {
-          id: "fortune_3",
-          title: "薪資收入",
-
-      }]
-const [step, setStep] = useState(1)
-const [QuestionType, setQuestionType] = useState('1')
-const [Option, setOption] = useState(defaultOption)
-
-function typehandler(type) {
-  console.log(type)
-  setQuestionType(type)
-}
-function stephandler() {
-  if (parseInt(QuestionType) === 1) {
+      // }
+    ]
+  const [step, setStep] = useState(1)
+  const [QuestionType, setQuestionType] = useState('love')
+  const [Option, setOption] = useState(defaultOption)
+  
+  function typehandler(type) {
+    console.log('QuestionType', type)
+    setQuestionType(type)
+  }
+  function stephandler() {
+    console.log("click")
+    if (QuestionType === "love") {
       setOption(loveOption)
-  } else if (parseInt(QuestionType) === 2) {
+      setQuestionType("love_1")
+    } else if (QuestionType === "career") {
       setOption(careerOption)
-  } else if (parseInt(QuestionType) === 3) {
+      setQuestionType("career_1")
+    } else if (QuestionType === "fortune") {
       setOption(fortuneOption)
-  }
-  if (step === 1) { setStep(2) } else {
+      setQuestionType("fortune_1")
+    }
+    if (step === 1) { setStep(2) } else if (step === 2) {
       setStep(3)
+      //儲存最後QuestionType
+      localStorage.setItem("QuestionType", QuestionType);
+    } else if (step === 3) {
+      setStep(4)
+    }else if (step === 4){
+      setStep(3)
+    }
   }
-}
 
   function CardDrawHandler(number) {
     const position = Math.random() < 0.5;
@@ -115,11 +128,11 @@ function stephandler() {
     setShuffle((pre) => pre + 1)
     setCards(tarotCards)
     setStep(1)
-    setQuestionType(1)
+    setQuestionType("love")
     setOption(defaultOption)
   }
 
-  return { CardDrawHandler, CardShuffleHandler,typehandler,stephandler,step,Option, cardList, Cards }
+  return { CardDrawHandler, CardShuffleHandler, typehandler, stephandler, step, Option, cardList, Cards }
 }
 
 export { useClickHandler };

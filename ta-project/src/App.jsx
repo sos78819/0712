@@ -16,7 +16,7 @@ function App() {
     parseInt(step) < 3 ?
       <QuestionType step={step} typeChange={typehandler} typeOption={Option} stephandler={stephandler} />
       :
-      <CardDrawPage cardList={cardList} Cards={Cards} CardShuffleHandler={CardShuffleHandler} CardDrawHandler={CardDrawHandler}/>
+      <CardDrawPage step={step} cardList={cardList} Cards={Cards} stephandler={stephandler} CardShuffleHandler={CardShuffleHandler} CardDrawHandler={CardDrawHandler}/>
 
 
 

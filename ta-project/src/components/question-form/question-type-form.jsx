@@ -11,7 +11,7 @@ const QuestionType = ({step,typeChange,typeOption,stephandler}) => {
             <QuestionForm>
             <QuestionSelect step={step} typeChange={typeChange} typeOption={typeOption}/>
             </QuestionForm>
-            <Button stephandler={stephandler} className="absolute right-[-4%] bottom-[-3%] rounded-full bg-emerald-200 p-2 hover:bg-green-100 font-bold drop-shadow-lg"><Arrow /></Button>
+            <Button onClick={stephandler} className="absolute right-[-4%] bottom-[-3%] rounded-full bg-emerald-200 p-2 hover:bg-green-100 font-bold drop-shadow-lg"><Arrow /></Button>
         </div>
     </div>
 

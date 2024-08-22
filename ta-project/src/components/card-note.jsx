@@ -1,8 +1,8 @@
 import { cardNote } from "../js/cardNote"
 const CardNote = ({ position, number,note_Str }) => {
-    console.log(cardNote)
+    
     const cardName = cardNote.filter((card)=> card.id === number)
-    console.log(cardName)
+    
     return (
         <div className="absolute top-0 w-full  bg-black z-10 h-[100%] rounded-md p-[2px] opacity-0 flex justify-center items-center hover:opacity-50">
             <div>

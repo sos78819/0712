@@ -1,6 +1,6 @@
-const Button = ({children,className,stephandler}) =>{
+const Button = ({children,className,onClick}) =>{
     return (
-        <button onClick={()=>stephandler()} className={className}>{children}</button>
+        <button onClick={onClick} className={className}>{children}</button>
     )
 }
 
