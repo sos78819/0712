@@ -33,7 +33,7 @@ const CardDescriptionList = ({ cardList }) => {
     }
     )
     return <div className="w-[80%] bg-slate-400 opacity-80 h-auto mt-10 p-2">
-        <h1 className="text-center text-wrap block w-full font-bold text-3xl py-3">{QuestionName}</h1>
+        <h1 className="text-center text-wrap block w-full font-bold text-xl md:text-3xl py-3">{QuestionName}</h1>
         {cardImg}
     </div>
 
