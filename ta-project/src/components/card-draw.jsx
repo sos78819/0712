@@ -6,7 +6,7 @@ const CardDraw = ({ CardDrawHandler,Cards }) => {
   
   return (
     <>     
-      <div className="w-full flex flex-wrap justify-center py-3 bg-gradient-to-b from-indigo-50 to-transparent opacity-85">
+      <div className="w-full flex flex-wrap justify-center mt-3 md:mt-0 py-3 bg-gradient-to-b from-indigo-50 to-transparent opacity-85">
         {Cards.map((card,idx) => (
           idx === 0?          
           !card.hidden ?<CardSingle className="lg:w-[100px] md:w-[89px] sm:w-[58px] xs:w-[50px] cursor-pointer hover:mt-[-10px]"  onClick={() => CardDrawHandler(card.cardId)} key={card.cardId}><CardImg  number="TarDefault"></CardImg></CardSingle>:
