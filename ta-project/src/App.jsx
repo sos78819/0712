@@ -19,7 +19,15 @@ function App() {
 
   return (
     <CardPageContainer>
-      <Header historyOption={historyOption} CardHistoryHandler={CardHistoryHandler} />
+      <Header cardList={cardList} 
+      historyOption={historyOption} 
+      openHistory={openHistory}
+      CardSaveHandler={CardSaveHandler}
+      CardHistoryHandler={CardHistoryHandler}
+      CardShuffleHandler={CardShuffleHandler}
+      stephandler={stephandler}    
+      />
+     
       {parseInt(step) < 3 ?
         <QuestionType CardHistoryHandler={CardHistoryHandler} step={step}
           typeChange={typehandler} typeOption={Option} stephandler={stephandler}
@@ -28,10 +36,8 @@ function App() {
 
         :
         <CardDrawPage step={step} cardList={cardList} Cards={Cards} openHistory={openHistory}
-          stephandler={stephandler}
-          CardShuffleHandler={CardShuffleHandler}
-          CardDrawHandler={CardDrawHandler}
-          CardSaveHandler={CardSaveHandler}
+          stephandler={stephandler}          
+          CardDrawHandler={CardDrawHandler}         
           CardHistoryHandler={CardHistoryHandler}
           historyOption={historyOption}
         />

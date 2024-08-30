@@ -5,7 +5,7 @@ import { CardSingle } from "./card-single";
 const CardSpread = ({ cardList }) => {
   console.log('cardList', cardList)
   return (
-    <div className="w-full sticky top-20 md:top-0  flex justify-center items-center">
+    <div className="w-full top-16  md:sticky  md:top-0  flex justify-center items-center">
       <div className="w-[45%] xl:w-[23%] lg:w-[40%] md:w-[33%]  flex py-5">
         <div className="w-[33%] px-[1px] flex items-center">
           <div className="w-full  flex flex-wrap items-center justify-end">

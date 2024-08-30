@@ -1,10 +1,34 @@
 import { CardHistoryButton } from "./card-history-button"
-const Header = ({ CardHistoryHandler, historyOption }) => {
+import { CardDescriptionButtton } from "./card-description-button"
+import { CardShuffleButton } from "./card-suffle-button"
+import { CardSave } from "./card-save"
+const Header = ({
+    openHistory,
+    CardHistoryHandler,
+    historyOption,
+    cardList,
+    CardShuffleHandler,
+    stephandler,
+    CardSaveHandler }) => {
 
-    return <div className="flex float-left ml-2 mt-4  md:fixed md:left-2 z-10">
-        <CardHistoryButton historyOption={historyOption} CardHistoryHandler={CardHistoryHandler} />
+    return <div className="fixed w-full">
+        <div className="">
+        <div className="flex float-left">
+            <CardHistoryButton historyOption={historyOption} CardHistoryHandler={CardHistoryHandler} />
+        </div>
+        {
+        cardList.length === 7 &&
+            <div className="flex float-right mr-4">
+                {!openHistory && <CardSave cardList={cardList} CardSaveHandler={CardSaveHandler} />}
+                <CardShuffleButton CardShuffleHandler={CardShuffleHandler} />
+                <CardDescriptionButtton stephandler={stephandler} />
+            </div>
+        }
+
+        </div>
 
     </div>
+
 
 }
 
