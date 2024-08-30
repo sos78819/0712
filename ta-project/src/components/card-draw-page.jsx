@@ -16,8 +16,6 @@ const CardDrawPage = ({
     CardDrawHandler,
     stephandler,
     CardSaveHandler,
-    CardHistoryHandler,
-    historyOption
 }) => {
     const finalQuestion = localStorage.getItem("QuestionType");
     console.log('finalQuestion', finalQuestion)
@@ -25,7 +23,7 @@ const CardDrawPage = ({
 
         <>
             {step === 4 && <CardDescriptionPage stephandler={stephandler} cardList={cardList} />}
-            {cardList.length === 7 && <div className="flex float-right mr-6 mt-4  md:fixed md:right-4 z-20">
+            {cardList.length === 7 && <div className="flex absolute float-right mr-6 mt-4  md:fixed md:right-4 z-20">
                 {!openHistory && <CardSave cardList={cardList} CardSaveHandler={CardSaveHandler} />}
                 <CardShuffleButton CardShuffleHandler={CardShuffleHandler} />
                 <CardDescriptionButtton stephandler={stephandler} /></div>}            
