@@ -1,6 +1,6 @@
 const CardHistoryMenu = ({ CardHistoryHandler, historyOption }) => {
 
-    return <div className="text-sm text-start rounded-md h-0 overflow-hidden group-hover:h-auto">
+    return <div className="text-sm fixed text-start rounded-md h-0 overflow-hidden group-hover:h-auto">
         <ul>
             {historyOption.length !== 0 ?
                 historyOption.map((list, idx) => {
