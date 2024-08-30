@@ -11,7 +11,7 @@ const Header = ({
     stephandler,
     CardSaveHandler }) => {
 
-    return <div className="fixed w-full">
+    return <div className="fixed w-full z-20">
         <div className="relative">
         <div className="flex absolute left-2 top-2">
             <CardHistoryButton historyOption={historyOption} CardHistoryHandler={CardHistoryHandler} />
