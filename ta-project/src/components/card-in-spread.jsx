@@ -8,7 +8,7 @@ const CardInSpread = ({ CardInfo ,position}) => {
   const note_Str = CardInfo.position ? "正位" : "逆位"
   return (
     <CardContainer>
-      <CardSingle className="[backface-visibility:hidden]"><CardImg number="TarDefault"></CardImg></CardSingle>
+      <CardSingle className="[backface-visibility:hidden]"><CardImg number="tarot_default"></CardImg></CardSingle>
       <CardSingle className="absolute top-1 [backface-visibility:hidden] [transform:rotateY(180deg)]">
         <CardImg className={class_Str} number={CardInfo.card}></CardImg>
         <CardNote position={position} note_Str={note_Str} number={CardInfo.card}/>
