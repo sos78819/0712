@@ -37,11 +37,16 @@
     opacity: 0.6;
     
   }
-
+  99% {
+    opacity: 0.1;
+    height: 100vh;
+    
+  }
   100% {
     display: none;
     opacity: 0;
     z-index: 0;
+    height: 0;
    
   }
 }
@@ -90,12 +95,12 @@
 }
 
 .suffle-animation {
-  animation: suffle 5s;
+  animation: suffle 4s;
   animation-fill-mode: forwards;
 }
 
 .textBreathe-animation {
-  animation: textBreathe 5s;
+  animation: textBreathe 4s;
 }
 
 .suffle-card-animation{  
