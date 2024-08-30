@@ -37,9 +37,14 @@
     opacity: 0.6;
     
   }
+  95% {
+    opacity: 0.3;
+    height: 100vh;
+  }
   100% {
     z-index: 0;
     opacity: 0;
+    height: 0;
     display: none;
   }
 }
