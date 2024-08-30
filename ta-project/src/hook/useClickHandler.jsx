@@ -1,92 +1,24 @@
 import { useState } from "react";
 import { useCardShuffle } from "./useCardShuffle";
+import { defaultOption,fortuneOption,loveOption,careerOption } from "../js/questionOption";
 
 const useClickHandler = () => {
-  const [cardList, setCardList] = useState([])
-  const { tarotCards, setShuffle } = useCardShuffle()
+  const CardHistory = localStorage.getItem("CardHistory")?JSON.parse(localStorage.getItem("CardHistory")):[]
+  const {tarotCards, setShuffle } = useCardShuffle()
+  const [cardList, setCardList] = useState([])  
   const [Cards, setCards] = useState(tarotCards)
-
-  const defaultOption =
-    [
-      {
-        id: "love",
-        title: "愛情",
-
-      },
-      {
-        id: "career",
-        title: "事業",
-
-      },
-      {
-        id: "fortune",
-        title: "財運",
-
-      }]
-  const loveOption =
-    [
-      {
-        id: "love_1",
-        title: "單身問未來感情發展",
-
-      },
-      {
-        id: "love_2",
-        title: "與特定對象感情發展",
-
-      },
-      // {
-      //     id: "love_3",
-      //     title: "婚姻",
-
-      // }
-    ]
-  const careerOption =
-    [
-      {
-        id: "career_1",
-        title: "當前工作發展",
-
-      },
-      {
-        id: "career_2",
-        title: "求職/轉職",
-
-      },
-      // {
-      //     id: "career_3",
-      //     title: "創業",
-
-      // }
-    ]
-  const fortuneOption =
-    [
-      {
-        id: "fortune_1",
-        title: "薪資收入",
-
-      },
-      {
-        id: "fortune_2",
-        title: "投資理財",
-
-      },
-      // {
-      //     id: "fortune_3",
-      //     title: "薪資收入",
-
-      // }
-    ]
+  const [openHistory, setOpenHistory] = useState(false)
+  const [historyOption,  setHistoryOption] = useState(CardHistory)
   const [step, setStep] = useState(1)
   const [QuestionType, setQuestionType] = useState('love')
   const [Option, setOption] = useState(defaultOption)
   
+
   function typehandler(type) {
-    console.log('QuestionType', type)
     setQuestionType(type)
   }
+
   function stephandler() {
-    console.log("click")
     if (QuestionType === "love") {
       setOption(loveOption)
       setQuestionType("love_1")
@@ -103,7 +35,7 @@ const useClickHandler = () => {
       localStorage.setItem("QuestionType", QuestionType);
     } else if (step === 3) {
       setStep(4)
-    }else if (step === 4){
+    } else if (step === 4) {
       setStep(3)
     }
   }
@@ -130,9 +62,34 @@ const useClickHandler = () => {
     setStep(1)
     setQuestionType("love")
     setOption(defaultOption)
+    setOpenHistory(false)
   }
 
-  return { CardDrawHandler, CardShuffleHandler, typehandler, stephandler, step, Option, cardList, Cards }
+  function CardSaveHandler(cardList) {
+    let CardHistory = localStorage.getItem('CardHistory') ? JSON.parse(localStorage.getItem('CardHistory')) : []
+    let newCardHistory = CardHistory.filter((list) =>
+      list.type !== QuestionType
+    )
+    newCardHistory.push({ type: QuestionType, historyList: cardList })
+    localStorage.setItem('CardHistory', JSON.stringify(newCardHistory));
+    setHistoryOption(newCardHistory)
+    alert('成功儲存');
+  }
+
+  function CardHistoryHandler(Type) {
+    if (Type !== "") {
+      const cardHistory = JSON.parse(localStorage.getItem('CardHistory'));
+      setOpenHistory(true)
+      const cardHistoryList = cardHistory.filter((cardRecord) => cardRecord.type === Type)
+      setStep(3)
+      setCardList(cardHistoryList[0].historyList)
+      localStorage.setItem("QuestionType", Type);
+    }
+  }
+  return {
+    CardDrawHandler, CardShuffleHandler, typehandler, stephandler, CardSaveHandler, CardHistoryHandler,
+    step, Option, cardList, Cards, openHistory,historyOption
+  }
 }
 
 export { useClickHandler };

@@ -1,8 +1,7 @@
 import { ReSet } from "./ui/reset"
 const CardShuffleButton = ({ CardShuffleHandler }) => {
-  return <button className="font-bold rounded-md absolute right-1 text-xs flex bg-violet-300 text-gray-700 p-2  mr-2 hover:bg-violet-200 border-white border-2" onClick={() => CardShuffleHandler()}>
-    <ReSet/>
-    ReStart
+  return <button className="bg-white cursor-pointer z-10  rounded-md p-1 mr-1 border-2 border-cyan-600  font-bold " onClick={() => CardShuffleHandler()}>
+   再抽一次
   </button>
 }
 

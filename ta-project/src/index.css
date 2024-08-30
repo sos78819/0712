@@ -87,17 +87,17 @@
 }
 
 .suffle-animation {
-  animation: suffle 11s;
+  animation: suffle 5s;
   animation-fill-mode: forwards;
 }
 
 .textBreathe-animation {
-  animation: textBreathe 11s;
+  animation: textBreathe 5s;
 }
 
 .suffle-card-animation{  
   
   animation-timing-function: ease;
-  animation:suffle-card 12s;
+  animation:suffle-card 5s;
   animation-fill-mode: forwards;
 }

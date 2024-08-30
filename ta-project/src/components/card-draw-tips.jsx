@@ -1,9 +1,8 @@
 import { CardShuffleButton } from "./card-suffle-button"
 
 
-const CardDrawTips = ({ CardShuffleHandler }) => {
-    return <div className="flex w-full sticky top-1 bottom-3 z-9">
-        <CardShuffleButton CardShuffleHandler={CardShuffleHandler} />
+const CardDrawTips = () => {
+    return <div className="flex w-full sticky top-1 bottom-3 z-9">        
         <p className="pl-2 text-zinc-800 flex font-bold">請憑直覺從下方抽出7張牌</p>
         <div className="animate-bounce bg-white dark:bg-slate-800 p-2 w-7 h-7 mb-5 md:mb-0 md:w-9 md:h-9 ring-1 ring-slate-900/5 dark:ring-slate-200/20 shadow-lg rounded-full flex items-center justify-center ml-3">
             <svg className="w-5 h-5 text-violet-500" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
