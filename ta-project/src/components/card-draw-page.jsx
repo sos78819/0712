@@ -2,11 +2,8 @@ import { CardDraw } from "./card-draw";
 import { CardSuffleAnimation } from "./card-suffle-animate";
 import { CardSpread } from "./card-spread";
 import { CardDrawTips } from "./card-draw-tips";
-import { CardDescriptionButtton } from "./card-description-button";
 import { CardDescriptionPage } from "./card-description-page";
-import { CardSave } from "./card-save";
-import { Header } from "./header";
-import { CardShuffleButton } from "./card-suffle-button";
+
 const CardDrawPage = ({
     step,
     cardList,
