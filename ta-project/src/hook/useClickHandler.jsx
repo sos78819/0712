@@ -72,6 +72,8 @@ const useClickHandler = () => {
 
     if (isRecord) {      
       var yes = confirm(`[${QuestionTypeName[QuestionType]}]紀錄將被覆蓋`);
+    }else{
+      var yes = confirm(`確認儲存？`);
     }
     if (yes) {
       let newCardHistory = CardHistory.filter((list) =>
