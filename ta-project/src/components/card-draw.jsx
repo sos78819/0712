@@ -16,7 +16,8 @@ const CardDraw = ({ CardDrawHandler,Cards }) => {
           !card.hidden ?<CardSingle className="lg:w-[100px] md:w-[89px] sm:w-[58px] xs:w-[50px] cursor-pointer hover:mt-[-10px] ml-[-20px]"  onClick={() => CardDrawHandler(card.cardId)} key={card.cardId}><CardImg  number="TarDefault"></CardImg></CardSingle>:
           !card.style
           ?<CardSingle className="lg:w-[100px] md:w-[89px] sm:w-[58px] xs:w-[50px] cursor-pointer ml-[-20px]" key={card.cardId}><CardImg className="opacity-0" number="TarDefault"></CardImg></CardSingle>:
-          <CardSingle className="lg:w-[100px] md:w-[89px] sm:w-[58px] xs:w-[50px] cursor-pointer ml-[-20px]"  key={card.cardId}><CardImg className="up-animation"  number="TarDefault"></CardImg></CardSingle>
+          <CardSingle className="lg:w-[100px] md:w-[89px] sm:w-[58px] xs:w-[50px]  
+          lg:h-[calc(100px*1.75)] md:h-[calc(89px*1.75)] sm:h-[calc(58px*1.75)] xs:h-[calc(50px*1.75)]  cursor-pointer ml-[-20px]"  key={card.cardId}><CardImg className="up-animation"  number="TarDefault"></CardImg></CardSingle>
 
           
         ))}
