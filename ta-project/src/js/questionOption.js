@@ -73,7 +73,7 @@ export const fortuneOption =
 export const QuestionTypeName =
 {
   "love_1": "[感情]單身問未來感情發展",
-  "love_2": "[感感情]與特定對象感情發展",
+  "love_2": "[感情]與特定對象感情發展",
   "career_1": "[事業]當前工作發展",
   "career_2": "[事業]求職/轉職",
   "fortune_1": "[財運]薪資收入",
