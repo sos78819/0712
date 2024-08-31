@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { useCardShuffle } from "./useCardShuffle";
-import { defaultOption,fortuneOption,loveOption,careerOption } from "../js/questionOption";
+import { defaultOption, fortuneOption, loveOption, careerOption,QuestionTypeName } from "../js/questionOption";
 
 const useClickHandler = () => {
-  const CardHistory = localStorage.getItem("CardHistory")?JSON.parse(localStorage.getItem("CardHistory")):[]
-  const {tarotCards, setShuffle } = useCardShuffle()
-  const [cardList, setCardList] = useState([])  
+  const CardHistory = localStorage.getItem("CardHistory") ? JSON.parse(localStorage.getItem("CardHistory")) : []
+  const { tarotCards, setShuffle } = useCardShuffle()
+  const [cardList, setCardList] = useState([])
   const [Cards, setCards] = useState(tarotCards)
   const [openHistory, setOpenHistory] = useState(false)
-  const [historyOption,  setHistoryOption] = useState(CardHistory)
+  const [historyOption, setHistoryOption] = useState(CardHistory)
   const [step, setStep] = useState(1)
   const [QuestionType, setQuestionType] = useState('love')
   const [Option, setOption] = useState(defaultOption)
-  
+
 
   function typehandler(type) {
     setQuestionType(type)
@@ -67,13 +67,27 @@ const useClickHandler = () => {
 
   function CardSaveHandler(cardList) {
     let CardHistory = localStorage.getItem('CardHistory') ? JSON.parse(localStorage.getItem('CardHistory')) : []
-    let newCardHistory = CardHistory.filter((list) =>
-      list.type !== QuestionType
-    )
-    newCardHistory.push({ type: QuestionType, historyList: cardList })
-    localStorage.setItem('CardHistory', JSON.stringify(newCardHistory));
-    setHistoryOption(newCardHistory)
-    alert('成功儲存');
+    let isRecord = CardHistory.map(list => list.type === QuestionType).some(Boolean);
+    console.log('isRecord', isRecord)
+
+    if (isRecord) {      
+      var yes = confirm(`[${QuestionTypeName[QuestionType]}]紀錄將被覆蓋`);
+    }
+    if (yes) {
+      let newCardHistory = CardHistory.filter((list) =>
+        list.type !== QuestionType
+      )
+
+      newCardHistory.push({ type: QuestionType, historyList: cardList })
+      localStorage.setItem('CardHistory', JSON.stringify(newCardHistory));
+      setHistoryOption(newCardHistory)
+      alert('成功儲存');
+    } else {
+      alert('放棄儲存');
+
+    }
+
+
   }
 
   function CardHistoryHandler(Type) {
@@ -88,7 +102,7 @@ const useClickHandler = () => {
   }
   return {
     CardDrawHandler, CardShuffleHandler, typehandler, stephandler, CardSaveHandler, CardHistoryHandler,
-    step, Option, cardList, Cards, openHistory,historyOption
+    step, Option, cardList, Cards, openHistory, historyOption
   }
 }
 

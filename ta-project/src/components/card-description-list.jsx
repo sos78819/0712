@@ -1,11 +1,9 @@
 import { CardImg } from "./card-img"
 import { cardDeccription } from "../js/cardDescription "
+import { QuestionTypeName } from "../js/questionOption";
 const CardDescriptionList = ({ cardList }) => {
     const QuestionType = localStorage.getItem("QuestionType");
-
-    const QuestionName = QuestionType ==="love_1" ?"[感情]單身問未來感情發展":QuestionType ==="love_2" ?"[感情]與特定對象感情發展":
-    QuestionType ==="career_1" ? "[事業]當前工作發展":QuestionType ==="career_2" ? "[事業]求職轉職":
-    QuestionType ==="fortune_1" ? "[財運]薪資收入":QuestionType ==="fortune_2" && "[財運]投資理財"
+    const QuestionName =  QuestionTypeName[QuestionType]
 
     const cardImg = cardList.map((card, idx) => {
         const cardPosition = idx == 0 ? "過去" : idx === 1 ? "現在" : idx === 2 ? "未來" : idx === 3 ? "你的作為" :
