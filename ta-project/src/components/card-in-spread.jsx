@@ -9,7 +9,7 @@ const CardInSpread = ({ CardInfo ,position}) => {
   return (
     <CardContainer>
       <CardSingle className="[backface-visibility:hidden]"><CardImg number="TarDefault"></CardImg></CardSingle>
-      <CardSingle className="absolute top-1 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+      <CardSingle className="absolute top-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
         <CardImg className={class_Str} number={CardInfo.card}></CardImg>
         <CardNote position={position} note_Str={note_Str} number={CardInfo.card}/>
       </CardSingle>
